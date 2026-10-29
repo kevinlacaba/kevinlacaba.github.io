@@ -224,6 +224,39 @@
             font-style: italic;
         }
 
+        /* Activity Cards */
+        .activity-card {
+            cursor: pointer;
+        }
+
+        .activity-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0, 51, 153, 0.2);
+        }
+
+        .activity-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #003399, #66a3ff);
+            color: white;
+            font-size: 2rem;
+            box-shadow: 0 8px 20px rgba(0, 51, 153, 0.25);
+            transition: transform 0.3s ease;
+        }
+
+        .activity-card:hover .activity-icon {
+            transform: scale(1.1) rotate(-5deg);
+        }
+
+        .activity-card .btn-outline-navy {
+            pointer-events: none;
+        }
+
         /* Who Am I Section */
         .who-am-i {
             background: white;
@@ -530,7 +563,7 @@
         </div>
     </section>
 
-    <!-- Activities Section - EMPTY BOXES ONLY -->
+    <!-- Activities Section -->
     <section id="activities" class="bg-light">
         <div class="container container-custom">
             <div class="section-title-wrapper text-center">
@@ -538,58 +571,55 @@
                     <i class="fas fa-cogs me-2" style="color: #003399;"></i> Activities
                 </h2>
                 <div class="title-underline"></div>
-                <p class="text-muted">No activities yet - coming soon!</p>
+                <p class="text-muted">Projects and activities I've worked on</p>
             </div>
 
-            <div class="row g-4">
-                <!-- Empty Activity Box 1 -->
-                <div class="col-12 col-md-4">
-                    <div class="custom-card">
-                        <div class="empty-box">
-                            <p class="text-muted mb-0"><i class="fas fa-hourglass-half me-2"></i>No activity yet</p>
+            <div class="row g-4 justify-content-center">
+
+                <!-- Activity 1: iPhone 17 -->
+                <div class="col-12 col-md-6 col-lg-5">
+                    <a href="https://kevinlacaba.github.io/iphone17/" target="_blank" rel="noopener"
+                        class="text-decoration-none">
+                        <div class="custom-card activity-card">
+                            <div class="text-center w-100">
+                                <div class="activity-icon mb-3">
+                                    <i class="fa-brands fa-apple"></i>
+                                </div>
+                                <h4 class="mb-2" style="color: #001a4d;">iPhone 17 Landing Page</h4>
+                                <p class="text-muted mb-3" style="font-size: 0.95rem; line-height: 1.7;">
+                                    A modern product showcase page featuring a clean layout, smooth
+                                    animations, and responsive design.
+                                </p>
+                                <span class="btn-outline-navy btn-sm">
+                                    View Project <i class="fas fa-arrow-up-right-from-square ms-1"></i>
+                                </span>
+                            </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
-                <!-- Empty Activity Box 2 -->
-                <div class="col-12 col-md-4">
-                    <div class="custom-card">
-                        <div class="empty-box">
-                            <p class="text-muted mb-0"><i class="fas fa-hourglass-half me-2"></i>No activity yet</p>
+
+                <!-- Activity 2: Neko Verse -->
+                <div class="col-12 col-md-6 col-lg-5">
+                    <a href="https://kevinlacaba.github.io/neko-verse/neko-website/index.html" target="_blank"
+                        rel="noopener" class="text-decoration-none">
+                        <div class="custom-card activity-card">
+                            <div class="text-center w-100">
+                                <div class="activity-icon mb-3">
+                                    <i class="fas fa-cat"></i>
+                                </div>
+                                <h4 class="mb-2" style="color: #001a4d;">Neko Verse Website</h4>
+                                <p class="text-muted mb-3" style="font-size: 0.95rem; line-height: 1.7;">
+                                    A themed, cat-inspired website with playful visuals and a
+                                    friendly user experience.
+                                </p>
+                                <span class="btn-outline-navy btn-sm">
+                                    View Project <i class="fas fa-arrow-up-right-from-square ms-1"></i>
+                                </span>
+                            </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
-                <!-- Empty Activity Box 3 -->
-                <div class="col-12 col-md-4">
-                    <div class="custom-card">
-                        <div class="empty-box">
-                            <p class="text-muted mb-0"><i class="fas fa-hourglass-half me-2"></i>No activity yet</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- Empty Activity Box 4 -->
-                <div class="col-12 col-md-4">
-                    <div class="custom-card">
-                        <div class="empty-box">
-                            <p class="text-muted mb-0"><i class="fas fa-hourglass-half me-2"></i>No activity yet</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- Empty Activity Box 5 -->
-                <div class="col-12 col-md-4">
-                    <div class="custom-card">
-                        <div class="empty-box">
-                            <p class="text-muted mb-0"><i class="fas fa-hourglass-half me-2"></i>No activity yet</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- Empty Activity Box 6 -->
-                <div class="col-12 col-md-4">
-                    <div class="custom-card">
-                        <div class="empty-box">
-                            <p class="text-muted mb-0"><i class="fas fa-hourglass-half me-2"></i>No activity yet</p>
-                        </div>
-                    </div>
-                </div>
+
             </div>
         </div>
     </section>
