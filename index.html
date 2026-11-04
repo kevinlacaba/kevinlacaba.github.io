@@ -23,51 +23,75 @@
             font-family: 'Merriweather', serif;
             background-color: #f8f9fa;
             overflow-x: hidden;
-        }
-
-        /* Navbar Glass Effect */
-        .navbar-glass {
-            background: rgba(255, 255, 255, 0.9) !important;
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border: 1px solid rgba(0, 51, 153, 0.15);
-            box-shadow: 0 8px 25px rgba(0, 51, 153, 0.15);
-        }
-
-        .nav-transition {
-            transition: all 0.3s ease;
-            color: #1a365d !important;
-            font-size: 0.95rem;
+            padding-bottom: 80px; /* Space for bottom navbar */
         }
         
         @media (min-width: 768px) {
-            .nav-transition {
-                font-size: 1rem;
+            body {
+                padding-bottom: 90px;
             }
         }
-        
-        .nav-transition:hover {
-            background: rgba(0, 51, 153, 0.1);
-            color: #003399 !important;
-            transform: translateY(-2px);
-        }
-        
-        .nav-transition.active {
-            background: #003399;
-            color: white !important;
+
+        /* Bottom Navigation Bar (Android style) */
+        .bottom-nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 1050;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border-top: 1px solid rgba(0, 51, 153, 0.15);
+            box-shadow: 0 -5px 25px rgba(0, 51, 153, 0.15);
+            padding: 0.5rem 0;
+            padding-bottom: calc(0.5rem + env(safe-area-inset-bottom, 0px));
         }
 
-        .professional-toggler {
-            border: none;
-            background: transparent;
-            color: #003399;
-            font-size: 1.5rem;
-            padding: 0.5rem 1rem;
+        .bottom-nav-inner {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 0 10px;
         }
-        
-        .professional-toggler:focus {
-            outline: none;
-            box-shadow: none;
+
+        .bottom-nav-link {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            color: #1a365d;
+            font-size: 0.7rem;
+            font-weight: 600;
+            padding: 0.5rem 1rem;
+            border-radius: 15px;
+            transition: all 0.3s ease;
+            gap: 0.2rem;
+            min-width: 70px;
+        }
+
+        .bottom-nav-link i {
+            font-size: 1.3rem;
+            transition: transform 0.3s ease;
+        }
+
+        .bottom-nav-link:hover {
+            background: rgba(0, 51, 153, 0.08);
+            color: #003399;
+        }
+
+        .bottom-nav-link.active {
+            background: #003399;
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 51, 153, 0.3);
+        }
+
+        .bottom-nav-link.active i {
+            transform: scale(1.1);
         }
 
         /* Hero Section */
@@ -210,18 +234,6 @@
         .custom-card:hover {
             transform: translateY(-8px);
             box-shadow: 0 15px 30px rgba(0, 51, 153, 0.2);
-        }
-
-        /* Empty Activity Box */
-        .empty-box {
-            width: 100%;
-            height: 100%;
-            min-height: 150px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #999;
-            font-style: italic;
         }
 
         /* Activity Cards */
@@ -435,43 +447,6 @@
 </head>
 
 <body>
-    <!-- Navbar -->
-    <div class="sticky-top z-5">
-        <div class="container position-relative">
-            <div class="row">
-                <div class="col-12">
-                    <div class="navbar-glass rounded-pill my-3 p-2">
-                        <div class="navbar navbar-expand-md p-0">
-                            <button class="navbar-toggler professional-toggler ms-auto d-md-none" type="button"
-                                data-bs-toggle="collapse" data-bs-target="#primaryNavbar" aria-controls="primaryNavbar"
-                                aria-expanded="false" aria-label="Toggle navigation">
-                                <i class="fas fa-bars"></i>
-                            </button>
-
-                            <div class="collapse navbar-collapse" id="primaryNavbar">
-                                <nav class="nav nav-fill flex-column flex-md-row w-100" id="navbar" role="navigation"
-                                    aria-label="Primary">
-                                    <a class="nav-link mx-md-1 fw-semibold fs-6 py-2 px-3 rounded-pill nav-transition"
-                                        href="#home">
-                                        <i class="fas fa-user me-2"></i>Home
-                                    </a>
-                                    <a class="nav-link mx-md-1 fw-semibold fs-6 py-2 px-3 rounded-pill nav-transition"
-                                        href="#activities">
-                                        <i class="fas fa-cogs me-2"></i>Activities
-                                    </a>
-                                    <a class="nav-link mx-md-1 fw-semibold fs-6 py-2 px-3 rounded-pill nav-transition"
-                                        href="#contact">
-                                        <i class="fas fa-envelope me-2"></i>Contact
-                                    </a>
-                                </nav>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <!-- Hero Section -->
     <div id="home" class="hero-section">
         <div class="container text-center hero-content">
@@ -672,6 +647,28 @@
         </div>
     </footer>
 
+    <!-- Bottom Navigation Bar (Android Style) -->
+    <nav class="bottom-nav" role="navigation" aria-label="Primary">
+        <div class="bottom-nav-inner">
+            <a class="bottom-nav-link" href="#home">
+                <i class="fas fa-home"></i>
+                <span>Home</span>
+            </a>
+            <a class="bottom-nav-link" href="#about">
+                <i class="fas fa-user"></i>
+                <span>About</span>
+            </a>
+            <a class="bottom-nav-link" href="#activities">
+                <i class="fas fa-cogs"></i>
+                <span>Activities</span>
+            </a>
+            <a class="bottom-nav-link" href="#contact">
+                <i class="fas fa-envelope"></i>
+                <span>Contact</span>
+            </a>
+        </div>
+    </nav>
+
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
@@ -680,11 +677,11 @@
         // Active nav link on scroll
         window.addEventListener('DOMContentLoaded', function() {
             const sections = document.querySelectorAll('section[id], div[id]');
-            const navLinks = document.querySelectorAll('#navbar .nav-link');
+            const navLinks = document.querySelectorAll('.bottom-nav-link');
             
-            window.addEventListener('scroll', function() {
+            function updateActiveNav() {
                 let current = '';
-                const scrollPos = window.scrollY + 100;
+                const scrollPos = window.scrollY + window.innerHeight / 3;
                 
                 sections.forEach(section => {
                     const sectionTop = section.offsetTop;
@@ -695,6 +692,16 @@
                     }
                 });
                 
+                // Fallback: if at bottom of page, highlight last section
+                if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 10) {
+                    current = 'contact';
+                }
+                
+                // If at top, highlight home
+                if (window.scrollY < 100) {
+                    current = 'home';
+                }
+                
                 navLinks.forEach(link => {
                     link.classList.remove('active');
                     const href = link.getAttribute('href').substring(1);
@@ -702,17 +709,24 @@
                         link.classList.add('active');
                     }
                 });
-            });
+            }
+            
+            window.addEventListener('scroll', updateActiveNav);
+            updateActiveNav(); // Run on load
 
-            // Navbar collapse on mobile after click
-            document.querySelectorAll('#navbar .nav-link').forEach(link => {
-                link.addEventListener('click', () => {
-                    if (window.innerWidth < 768) {
-                        const navbar = document.getElementById('primaryNavbar');
-                        const bsCollapse = bootstrap.Collapse.getInstance(navbar);
-                        if (bsCollapse) {
-                            bsCollapse.hide();
-                        }
+            // Smooth scroll for bottom nav links
+            document.querySelectorAll('.bottom-nav-link').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetSection = document.querySelector(targetId);
+                    
+                    if (targetSection) {
+                        const offsetTop = targetSection.offsetTop;
+                        window.scrollTo({
+                            top: offsetTop,
+                            behavior: 'smooth'
+                        });
                     }
                 });
             });
